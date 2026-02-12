@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useMemo, Suspense, useState } from 'react';
 import Button from '../components/Button';
 import { Briefcase, Activity, ShoppingCart, Cpu, ArrowUpRight, Database, ChevronRight, Laptop, Server, Monitor, Smartphone, Globe } from 'lucide-react';
@@ -133,9 +134,8 @@ const SectorCard = ({ ind, i }: { ind: any, i: number }) => {
       {/* Content */}
       <div className="relative z-10 flex flex-col h-full">
         <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-[#00A3FF] transition-all duration-500 shadow-xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#00A3FF] to-[#A855F7] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#00A3FF] to-[#A855F7] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <span className="relative z-10 text-[#00A3FF] group-hover:text-white transition-colors">
-            {/* Fix: Specifically casting ind.icon to React.ReactElement<any> to resolve the 'className' prop type error in cloneElement */}
             {React.cloneElement(ind.icon as React.ReactElement<any>, { className: "w-7 h-7" })}
           </span>
         </div>
@@ -171,7 +171,7 @@ const SectorCard = ({ ind, i }: { ind: any, i: number }) => {
 // --- Page Component ---
 
 const SOLUTION_IMAGES = [
-  { url: "https://images.unsplash.com/photo-1551288049-bbbda5366a7a?auto=format&fit=crop&q=80&w=1200", label: "Predictive Analytics", code: "DATA_NODE.01" },
+  { url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200", label: "Predictive Analytics", code: "DATA_NODE.01" },
   { url: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200", label: "Bio-Tech Sync", code: "BIO_CORE.02" },
   { url: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200", label: "Autonomous Systems", code: "AUTO_MECH.03" },
   { url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200", label: "Cloud Governance", code: "CLOUD_STRAT.04" },
@@ -212,7 +212,7 @@ const Solutions: React.FC = () => {
   ];
 
   return (
-    <div ref={containerRef} className="pt-24 md:pt-32 pb-16 overflow-hidden min-h-screen relative">
+    <div ref={containerRef} className="pt-24 md:pt-32 pb-16 overflow-hidden min-h-screen relative z-10">
       
       {/* Immersive 3D Background (Home Page Style) */}
       <div className="fixed inset-0 -z-20 pointer-events-none opacity-40">
@@ -227,7 +227,7 @@ const Solutions: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 mb-24 md:mb-32">
+      <section id="digital" className="max-w-7xl mx-auto px-6 mb-24 md:mb-32">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
           
           <div className="reveal opacity-0 translate-y-10 transition-all duration-1000 space-y-10 z-10 drop-shadow-[0_0_40px_rgba(0,0,0,0.9)]">
@@ -312,7 +312,7 @@ const Solutions: React.FC = () => {
       </section>
 
       {/* Sector Frameworks Section */}
-      <section className="bg-white/[0.02] backdrop-blur-md py-24 md:py-32 border-y border-white/5 relative z-10">
+      <section id="enterprise" className="bg-white/[0.02] backdrop-blur-md py-24 md:py-32 border-y border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20 space-y-4 reveal opacity-0 translate-y-10 transition-all duration-1000">
             <span className="text-[#A855F7] font-black tracking-[0.5em] uppercase text-[11px]">Vertical Integration</span>
@@ -331,8 +331,8 @@ const Solutions: React.FC = () => {
       {/* Final CTA */}
       <section className="py-24 md:py-40 max-w-7xl mx-auto px-6 relative z-10">
         <div className="bg-[#0A0A0A]/90 backdrop-blur-3xl border border-white/5 rounded-[4rem] p-12 md:p-24 text-center space-y-12 relative overflow-hidden group shadow-3xl">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,_#00A3FF11_0%,_transparent_60%)]"></div>
-          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_100%,_#A855F711_0%,_transparent_60%)]"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,_#00A3FF11_0%,_transparent_50%)]"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_100%,_#A855F711_0%,_transparent_50%)]"></div>
           
           <div className="relative z-10 space-y-8 reveal opacity-0 translate-y-10 transition-all duration-1000">
             <h2 className="text-4xl md:text-7xl font-orbitron font-black text-white leading-[0.9] tracking-tighter">

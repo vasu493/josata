@@ -10,16 +10,39 @@ import ServicesPage from './pages/ServicesPage';
 import Solutions from './pages/Solutions';
 import AnimatedBackground from './components/AnimatedBackground';
 
+// Helper to handle scrolling to hash fragments in SPA
+const ScrollToHash = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        // Delay slightly to allow page content and transition to finish
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [pathname, hash]);
+
+  return null;
+};
+
 const RouteTransitionEffect = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    setIsAnimating(true);
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    const timer = setTimeout(() => setIsAnimating(false), 600);
-    return () => clearTimeout(timer);
-  }, [pathname]);
+    // Only scroll to top if there is no hash (anchor link)
+    if (!hash) {
+      setIsAnimating(true);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      const timer = setTimeout(() => setIsAnimating(false), 600);
+      return () => clearTimeout(timer);
+    }
+  }, [pathname, hash]);
 
   return (
     <div className={`fixed inset-0 z-[9999] pointer-events-none overflow-hidden transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`}>
@@ -61,6 +84,9 @@ const App: React.FC = () => {
       <div className="min-h-screen flex flex-col relative bg-[#050505] overflow-x-hidden">
         {/* Route Scan Layer */}
         <RouteTransitionEffect />
+        
+        {/* Hash Scroll Handler */}
+        <ScrollToHash />
 
         {/* Cinematic Ambient Background */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none -z-40">

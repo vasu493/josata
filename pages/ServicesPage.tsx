@@ -48,7 +48,12 @@ const ServicesPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-6 mb-20 md:mb-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {SERVICES.map((s, i) => (
-            <div key={s.id} className="reveal opacity-0 translate-y-10 transition-all duration-1000" style={{ transitionDelay: `${i * 100}ms` }}>
+            <div 
+              key={s.id} 
+              id={s.id} 
+              className="reveal opacity-0 translate-y-10 transition-all duration-1000" 
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
               <ServiceCard service={s} index={i} />
             </div>
           ))}

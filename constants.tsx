@@ -22,9 +22,11 @@ export const NAV_ITEMS: NavItem[] = [
     path: '/services',
     dropdown: [
       { label: 'IT Consulting', path: '/services#it-consulting' },
-      { label: 'Software Development', path: '/services#software-development' },
+      { label: 'Software Development', path: '/services#software-dev' },
       { label: 'Cloud Solutions', path: '/services#cloud' },
+      { label: 'Data Analytics', path: '/services#data-analytics' },
       { label: 'Cybersecurity', path: '/services#cybersecurity' },
+      { label: 'Digital Transformation', path: '/services#digital-transformation' },
     ]
   },
   { 

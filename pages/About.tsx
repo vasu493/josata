@@ -98,7 +98,7 @@ const ValueCard = ({ value, i }: { value: any, i: number }) => {
 
       <div className="relative z-10 flex flex-col h-full">
         <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-[#A855F7] transition-all duration-500 shadow-xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#A855F7] to-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#A855F7] to-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <span className="relative z-10 text-[#A855F7] group-hover:text-white transition-colors">
             {React.cloneElement(value.icon as React.ReactElement<any>, { className: "w-7 h-7" })}
           </span>
@@ -131,7 +131,7 @@ const ValueCard = ({ value, i }: { value: any, i: number }) => {
 };
 
 const ABOUT_SLIDER_IMAGES = [
-  { url: "https://images.unsplash.com/photo-1522071823916-4197b82442ce?auto=format&fit=crop&q=80&w=1200", label: "Collaborative Intelligence", code: "TEAM_SYNC.01" },
+  { url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200", label: "Collaborative Intelligence", code: "TEAM_SYNC.01" },
   { url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200", label: "Strategic Global HQ", code: "HQ_NODE.02" },
   { url: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200", label: "Principal Engineering", code: "CORE_DEV.03" },
   { url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200", label: "Innovation Laboratory", code: "R&D_ZONE.04" },
@@ -172,7 +172,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div ref={containerRef} className="pt-24 md:pt-32 pb-16 overflow-hidden min-h-screen relative">
+    <div ref={containerRef} className="pt-24 md:pt-32 pb-16 overflow-hidden min-h-screen relative z-10">
       <div className="fixed inset-0 -z-20 pointer-events-none opacity-50">
         <Suspense fallback={null}>
           <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
@@ -250,7 +250,7 @@ const About: React.FC = () => {
                   </div>
                   <div className="flex gap-2">
                     {ABOUT_SLIDER_IMAGES.map((_, i) => (
-                      <div key={i} className={`h-1 flex-grow rounded-full transition-all duration-700 ${currentImgIdx === i ? 'bg-[#A855F7] shadow-[0_0_15px_#A855F7]' : 'bg-white/10'}`}></div>
+                      <div key={i} className={`h-1 flex-grow rounded-full transition-all duration-700 ${currentImgIdx === i ? 'bg-[#A855F7] shadow-[0_0_15px_#00A3FF]' : 'bg-white/10'}`}></div>
                     ))}
                   </div>
                 </div>

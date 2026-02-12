@@ -274,7 +274,8 @@ const Hero: React.FC = () => {
 
         {/* Right Media */}
         <div className="reveal opacity-0 translate-y-16 transition-all duration-[1.5s] delay-500 relative hidden lg:block">
-          <div className="relative w-full aspect-[4/5.2] max-w-sm ml-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_80px_150px_rgba(0,0,0,0.8)] group/shunt">
+          {/* Modified: aspect ratio from [4/5.2] (portrait) to [16/11] (landscape-ish) and max-width from lg to 2xl */}
+          <div className="relative w-full aspect-[16/11] max-w-2xl ml-auto rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_80px_150px_rgba(0,0,0,0.8)] group/shunt">
             
             {/* Sliders */}
             <div className="absolute inset-0 flex">
